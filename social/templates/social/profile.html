@@ -1,0 +1,109 @@
+{% extends 'landing/base.html' %}
+
+
+
+{% block content %}
+
+<head>
+	<link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@500&display=swap" rel="stylesheet">
+
+	
+</head>
+
+	<div class="container">
+			<div class="row mt-3">
+				<div class="col col-md-6" style="border: 2px solid black; width: 150px; border-radius: 100px;  font-family: 'Maven Pro', sans-serif; ">
+					<a href="{% url 'all-post' %}" class="btn btn-light">Back to feed</a>
+				</div>
+			</div>
+
+			<div class="row mt-3 justify-content-center border-bottom">
+				<div class="card shadow-sm col-md-8 col-sm-12 mb-4">
+					<br>
+					<p class="text-muted">@{{ user}}</p>
+					<br>
+					<img src="{{ profile.picture.url }}" class="rounded-circle" style="width: 110px; height: 110px; margin-left: px; margin-bottom: 8px;" />
+				<h3 style="margin-left: 10px;">{{ profile.name }}</h3>
+				<span>
+					{% if request.user == user %}
+						<a  href="{% url 'profile-edit' profile.pk %}" class="edit-color post-link"><i class="far fa-edit" style="float: right;"></i></a>
+					{% endif %}
+				</span>
+					{% if profile.birth_date %}
+					<p class="py-1 px-5">Birth date : {{ profile.birth_date }}</p>
+					{% endif %}
+					
+					{% if profile.phoneNo %}
+					<p class="py-1 px-5">Contact number : {{ profile.phoneNo }}</p>
+					{% endif %}
+					
+					{% if profile.emailId %}
+					<p class="py-1 px-5">Email Id : {{ profile.emailId }}</p>
+					{% endif %}
+					{% if profile.location %}
+					<p class="py-1 px-5">Location : {{ profile.location }}</p>
+					{% endif %}
+					
+					{% if profile.bio %}
+					<p class="py-1 px-5">About : {{ profile.bio }}</p>
+					{% endif %}
+					<div class="mb-3">
+						<p style="margin-left: 10px;">Connections :{{ number_of_followers }}</p>
+						{% if user == requset.user %}
+						{% else %}
+						{% if is_following %}
+						<form method="POST" action="{% url 'remove-connection' profile.pk %}">
+							{% csrf_token %}
+						
+							<button class="btn btn-outline-danger" type="submit" style="margin-left: 10px; margin-bottom: 5px;">Undo</button>
+						
+						</form>
+						{% else %}
+						<form method="POST" action="{% url 'add-connection' profile.pk %}">
+							{% csrf_token %}
+						
+							<button class="btn btn-outline-success" type="submit" style="margin-left: 10px; margin-bottom: 5px;">Connect</button>
+						
+						</form>
+						{% endif %}
+						{% endif %}
+					</div>
+				</div>
+			</div>
+<br>
+	<h4><span class="badge bg-secondary">Posts by {{ user }}</span></h4>
+	
+    {% for post in posts %}
+      <div class="card container mt-3" style="width: 28rem;">
+        <img src="{{ post.productImage.url }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{ post.productName }}
+			{% ifequal True post.rented %}
+            	<span style="color: black;" class="badge badge-success">The Deal is <i style="color: red;">Closed</i></span>
+          	{% else %}
+            	<span style="color: black;" class="badge badge-success">The Deal is <i style="color: green;"> Active</i></span>
+          	{% endifequal %} 
+		  </h5>
+          <p>Renter : {{ post.author }} - <i class="text-muted">{{ post.created_on}}</i></p>
+          <p class="card-text">{{ post.productDesc |truncatechars:200 }}</p>
+
+          <a href="{% url 'post-detail' post.id %}" class="btn btn-primary">Details</a>
+
+		  {% if request.user %}
+		  {% if post.rented %}
+			<div style="float: right;">
+
+				<a href="{% url 'trans-details' post.pk %}" class="edit-color">
+					<i style="color: black;" class="fa fa-info-circle" aria-hidden="true"> Transaction details </i></a>
+			</div>
+			{% endif %}
+		  {% endif %}	  
+
+        </div>
+      </div>      
+      <br>
+	{% endfor %}
+	</div>
+{% endblock %}
+
+

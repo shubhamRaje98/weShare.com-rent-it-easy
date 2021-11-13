@@ -1,0 +1,27 @@
+{% extends 'landing/base.html' %}
+{% load crispy_forms_tags %}
+
+<!-- adi code starts here -->
+
+{% block content %}
+
+<body style="background-color: ghostwhite;">  <!-- background image tak-->
+  
+    <br>
+    <div class="sign-up-form" style="width: 750px; height: 480px; box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3); background-color: rgba(204, 237, 255, 0.5); text-align: center; padding: auto; margin: auto; border: 1px solid black; border-radius: 35px;">
+    
+        <div class="container mt-5">
+            <form method="POST" class="form-horizontal form_middle" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <br>
+                <input class="btn btn-info col-md-12" type="submit" name="submit-post" value="Post"/>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+{% endblock %}
+
+<!-- adi code ends here -->

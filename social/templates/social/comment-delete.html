@@ -1,0 +1,30 @@
+{% extends 'landing/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+	<div class="container">
+			<div class="row justify-content-center mt-3">
+				<div class="col col-md-6">
+					<a href="{% url 'post-detail' object.post.pk %}" class="btn btn-light">Back to post</a>
+				</div>
+			</div>
+			<div class="row justify-content-center mt-3">
+				<div class="col col-md-6 border-bottom">
+					<h5>Delete a comment</h5>
+				</div>
+			</div>
+
+			<div class="row justify-content-center mt-3">
+				<div class="col col-md-6 border-bottom mb-4">
+					<form class="mb-2" method="post">
+						{% csrf_token %}
+						<p>Are you sure you want to delete it..?</p>
+						<div class="d-grid">
+							<button class="btn btn-danger mt-3">Delete</button>
+						</div>
+					</form>
+				</div>
+			</div>
+
+	</div>
+{% endblock content %}

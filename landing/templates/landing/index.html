@@ -1,0 +1,280 @@
+{% extends 'landing/base.html' %}
+
+
+{% block content %}
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
+
+
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif&display=swap" rel="stylesheet">
+</head>
+
+{% load static %}
+
+	
+                
+                <body class="text-center" data-new-gr-c-s-check-loaded="14.1027.0" data-gr-ext-installed="">
+                
+                  
+                  <main role="main" class="inner cover">
+                    
+                    <div class="container"> 
+                  
+                      <br>
+
+
+                      <!-- myslideshow id vala div slider sathi aahe tr images change kr ani ajun 3 add kr mhnje total 6 hotil-->
+                      <!---
+                    <div id="myslideshow" class="carousel slide" data-ride="carousel" style="border: 1px solid black; ">
+                      <ol class="carousel-indicators">
+                          <li data-target="#myslideshow" data-slide-to="0" class="active"></li>
+                          <li data-target="#myslideshow" data-slide-to="1"></li>
+                          <li data-target="#myslideshow" data-slide-to="2"></li>
+                      </ol>
+                      <div class="carousel-inner">
+                          <div class="carousel-item active">
+                              <a href="#"><img class="d-block w-100" src="https://source.unsplash.com/1400x400/?rental, rent" alt="..."></a>
+                          </div>
+                          <div class="carousel-item">
+                              <a href="#"><img class="d-block w-100" src="https://source.unsplash.com/1400x400/?renting,happy" alt="..."></a>
+                          </div>
+                          <div class="carousel-item">
+                              <a href="#"><img class="d-block w-100" src="https://source.unsplash.com/1400x400/?commerce,ecommerce" alt="..."></a>
+                          </div>
+                      </div>
+                      <a class="carousel-control-prev" href="#myslideshow" role="button" data-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Previous</span>
+                      </a>
+                      <a class="carousel-control-next" href="#myslideshow" role="button" data-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Next</span>
+                      </a>
+                    </div>
+                    -->
+
+                    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                      <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                      </ol>
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <img src="https://source.unsplash.com/1400x400/?phones, computer, dark" class="d-block w-100" alt="...">
+                          <div class="carousel-caption d-none d-md-block">
+                            <h5 style="color: yellow;">We share, We grow</h5>
+                            <p>Indians first online renting platform</p>
+                          </div>
+                        </div>
+                        <div class="carousel-item">
+                          <img src="https://source.unsplash.com/1400x400/?renting,internet, dark" class="d-block w-100" alt="...">
+                          <div class="carousel-caption d-none d-md-block">
+                            <h5>rent anything you want!</h5>
+                            <p> post your stuff online and people will rent it</p>
+                          </div>
+                        </div>
+                        <div class="carousel-item">
+                          <img src="https://source.unsplash.com/1400x400/?business, ecommerce, dark" class="d-block w-100" alt="...">
+                          <div class="carousel-caption d-none d-md-block">
+                            <h5>No more liabelities!</h5>
+                            <p>Turn your liabalities into assets, by reting it on weShare</p>
+                          </div>
+                        </div>
+                      </div>
+                      <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                      <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div>
+                    <br><br>
+
+                    <div class="container">
+                      <h4 style="text-align: left;">There's more</h4>
+                      <h4 style="text-align: left;"> to renting</h4>
+                      <hr size="10" width="55px"style="height: 2px; color: red;">
+                    </div>
+
+                    <div class="container">
+                      <div style="text-align: left;">
+                        <h5 style="font-family: 'Lora', serif;">Finest-quality Products</h5>
+                        <p style="text-align: left; font-family: 'Josefin Sans', sans-serif;font-weight: 500;">Quality matters to you, and us! <br>That's why we do a strict quality-check for every product.</p>
+                      </div>
+                      <div style="text-align: right;">
+                        <h5 style="font-family: 'Lora', serif;">Free relocation</h5>
+                        <p style="font-family: 'Josefin Sans', sans-serif; font-weight: 500;">Changing your house or even your city? <br>We'll relocate your rented products for free.</p>
+                      </div>
+                      <div  style="text-align: left;">
+                        <h5 style="font-family: 'Lora', serif;">Free maintenance</h5>
+                        <p style="text-align: left; font-family: 'Josefin Sans', sans-serif; font-weight: 500;">Keeping your rented products in a spick and span condition is on us, <br> you can sit back and relax.</p>
+                      </div>
+                      <div  style="text-align: right;">
+                        <h5 style="font-family: 'Lora', serif;">Cancel anytime</h5>
+                        <p style="font-family: 'Josefin Sans', sans-serif; font-weight: 500;">Pay only for the time you use the product and <br>close your subscription without any hassle.</p>
+                      </div>
+                      <div  style="text-align: left;">
+                        <h5 style="font-family: 'Lora', serif;">Keep upgrading</h5>
+                        <p style="font-family: 'Josefin Sans', sans-serif; font-weight: 500;">Bored of the same product? <br>Upgrade to try another, newer design and enjoy the change!</p>
+                      </div>
+                    </div>
+
+                    </div>
+
+                    <br><br>
+
+                    <div class="rm-footer__new rm-footer__hidden" style="display:block; background-color: rgba(204, 237, 255, 0.5); ">
+                      <footer class="rm-main__footer">
+
+                        <div class="container" style="    padding-left: 15px;
+                        padding-right: 15px; margin-right: auto;
+                        margin-left: auto;">
+
+                          <h6 style="text-align: left; padding-top: 50px;font-family: 'Ubuntu', sans-serif;">WeShare</h6>
+                          <p style="text-align: left; font-size: 15px; font-family: 'IBM Plex Serif', serif;">WeShare is best-known rental brands with a pan-India presence. You can rent furniture, appliances, and electronics from us for a monthly fee. Instead of paying tens of thousands to purchase said items from a store, you can rent them from us at a discounted price.</p>
+                          
+                          <p style="text-align: left; font-size: 15px;  font-family: 'IBM Plex Serif', serif;">WeShare provides very reasonable rental rates, allowing you to save a great deal of money.WeShare offer convenient rental options, short-term and long-term. WeShare is the platform where people can rent anything or buy anything from every domain that has been put on rent by people for the people. It will be one platform andpeople will have to look for when they have need to rent something.</p>
+                          
+                          <p  style="text-align: left;  font-size: 15px;  font-family: 'IBM Plex Serif', serif;">You’ll find top-rated, best-selling products in our inventory, made by the most dependable brands in the market. You can rent any item from us online in a matter of minutes. Unlike other market players in the rental economy, weShare won't own assets but only act as a platform between the rentee and renter to connect. Hence, weShare could turn to be an innovative breakthrough in this economy. </p>
+
+                        </div>
+
+                        <br><br>
+
+                        <div class="container" style="    padding-left: 15px;
+                        padding-right: 15px; margin-right: auto;
+                        margin-left: auto;">
+
+                          <div class="row">
+
+                            <div class="col-md-9 col-sm-12 col-xs-12">
+
+                              <div class="row">
+
+                                <div class="col-md-4 col-sm-12 col-xs-12">
+
+                                  <div class="rm-footer__links">
+                                    <h5 class="hidden-sm hidden-lg" style="font-size: 18px;">WeShare</h5>
+
+
+                                    <p>
+                                      <a href="#" style="color: black; font-size: 13px;">About Us</a><br>
+                                      <a href="#" style="color: black; font-size: 13px;">Culture</a><br>
+                                      <a href="#" style="color: black; font-size: 13px;">Investors</a><br>
+                                      <a href="#" style="color: black; font-size: 13px;">Careers</a><br>
+                                      <a href="#" style="color: black; font-size: 13px;">Contact</a><br>
+                                      <a href="#" style="color: black; font-size: 13px;">Our Benefits</a><br>
+                                      <a href="#" style="color: black; font-size: 13px;">Sitemap</a> 
+                                    </p>
+                                        
+                                  </div>
+
+
+                                </div>
+
+                                <div class="col-md-4 col-sm-12 col-xs-12" >
+
+                                  <div class="rm-footer__links">
+                                    <h5 class="hidden-sm hidden-lg" style="font-size: 18px;">INFORMATION</h5>
+
+
+                                    <p>
+                                      <a href="#" style="color: black; font-size: 13px;">Blog</a><br>
+                                      <a href="#" style="color: black; font-size: 13px;">FAQs</a><br>
+                                      <a href="#" style="color: black; font-size: 13px;">Documents Required</a>
+                                      
+                                    </p>
+                                        
+                                  </div>
+
+                                </div>
+
+                                <div class="col-md-4 col-sm-12 col-xs-12">
+
+                                  <div class="rm-footer__links">
+                                    <h5 class="hidden-sm hidden-lg" style="font-size: 18px;">POLICIES</h5>
+
+
+                                    <p>
+                                      <a href="#" style="color: black; font-size: 13px;">Cancellation & Return</a><br>
+                                      <a href="#" style="color: black; font-size: 13px;">Privacy Policy</a><br>
+                                      <a href="#" style="color: black; font-size: 13px;">Rental Terms & Conditions</a><br>
+                                      <a href="#" style="color: black; font-size: 13px;">Referral Terms & Conditions</a>
+                                    </p>
+                                        
+                                  </div>
+
+                                </div>
+
+                                
+
+                              </div>
+
+                            </div>
+
+                            <div class="col-md-3 col-sm-12 col-xs-12">
+
+                              <div class="rm-footer__links">
+                                <h5 class="hidden-sm hidden-lg" style="font-size: 18px;">NEED HELP?</h5>
+
+
+                                <p>
+                                  <a href="#" style="color: black; font-size: 13px;">Contact Us</a><br>
+                                  <a href="#" style="color: black; font-size: 13px;">1800 212 5544</a><br>
+                                  <a href="#" style="color: black; font-size: 13px;">wesharepvtltd@gamil.com</a><br>
+                                  
+                                </p>
+                                    
+                              </div>
+
+                            </div>
+
+
+                          </div>
+
+                        </div>
+
+                        <div class="rm-subscribe__container hidden-xs">
+                          <div class="container">
+                            <div class="rm-subscribe__block"></div>
+                          </div>
+                        </div>
+
+                        <section class="rm-footer__copyright">
+                          <div class="container i tried-ash">
+                            <div class="row">
+                              <div class="col-md-3 col-sm-3 col-xs-12 hidden-xs"  style="margin-left: 40%;">
+                                <p>© 2021. WeShare Pvt. Ltd.</p>
+                              </div>
+                            </div>
+                          </div>
+                        </section>
+
+
+                      </footer>
+
+                    </div>
+
+                  </main>
+                
+                </body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>			
+
+  </div>
+{% endblock content %}
+
+
+<!-- WeShare provides very reasonable rental rates, allowing you to save a great deal of money.WeShare offer convenient rental options, short-term and long-term. WeShare is the platform where people can rent anything or buy anything from every domain that has been put on rent by people for the people. It will be one platform andpeople will have to look for when they have need to rent something. -->

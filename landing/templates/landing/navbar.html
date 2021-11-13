@@ -1,0 +1,64 @@
+{% load static %}
+<script src="https://kit.fontawesome.com/fe21b99c1d.js" crossorigin="anonymous"></script>	
+
+<style>
+
+
+</style>
+
+<!-- adi code starts here -->
+
+<nav class="navbar navbar-expand-lg" style="background-color: rgba(240, 241, 242, 0.5); ">
+  <div class="container-fluid">
+    {% if user.is_authenticated %}
+      <a class="navbar-brand" href="{% url 'all-post' %}" style="color:black;"><img src="{%static 'images/w3.png'%}" alt=".."> weShare </a>
+    {% else %}
+      <a class="navbar-brand" href="#" style="color:black;"><img src="{%static 'images/w3.png'%}" alt=".."> weShare </a>
+    {% endif %}
+      <form class="d-flex col-lg-4 col-md-6 col-sm-4" method="GET" action="{% url 'search' %}" >
+        <div class="input-group">
+          <span class="input-group-text"id="basic-addon1"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+          <input class="form-control" type="text" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1" name="query" value="{{ request.GET.query }}">
+          <button class="remove-default-btn rounded" type="submit"><i class="fas fa-search"></i></button>
+        </div>
+
+        {% if user.is_authenticated %}
+        <div class="dropdown"   style="padding-right: 50px;">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa fa-user" aria-hidden="true" style="color: black;"></i>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="{% url 'profile' user.profile.pk %}">Profile</a></li>
+              <li><a class="dropdown-item" href="{% url 'make-post' %}">Make a Post!</a></li>
+                        <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/accounts/logout/">Signout</a></li>
+          </ul>
+      </div>
+     {% endif %}
+
+    <!--
+      style="width: 100px; height: 45px; font-weight: bold; border: 1px solid black;
+    --> 
+    <div class="d-flex">
+      {% if user.is_authenticated %}
+      <a href="{% url 'account_login' %}" class="btn btn-secondary"><i class="fa fa-home" aria-hidden="true"></i></a>
+      {% else %}
+      <a href="{% url 'account_login' %}" class="btn btn-success mx-1">Login</a>
+      <a href="{% url 'account_signup' %}" class="btn btn-dark mx-1"
+        >Register</a>
+    
+      {% endif %}
+    </div>
+
+      </form>
+    
+  </div>
+</nav>
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,300&display=swap" rel="stylesheet">
+</head>
+
+<!-- adi code ends here -->

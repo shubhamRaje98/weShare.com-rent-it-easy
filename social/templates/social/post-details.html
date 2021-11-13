@@ -1,0 +1,105 @@
+{% extends 'landing/base.html' %}
+{% load crispy_forms_tags %}
+
+<!-- adi code starts here -->
+
+{% block content %}
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@600&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,600&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@700&display=swap" rel="stylesheet">
+</head>
+
+
+
+
+
+<div class="container mt-5">
+<!---
+    {% ifequal transaction_status True %}
+        <span class="badge badge-secondary">Active</span>
+    {% else %}
+        <span class="badge badge-secondary">Closed</span>
+    {% endifequal %}
+-->
+    <div class="card mb-3" style="width: 1000px; height: auto; border: 1px solid black; border-radius: 25px; padding: auto; margin: auto;">
+        <img src="{{ post.productImage.url }}" class="card-img-top" alt="..." style="width: auto; height: auto; border-radius: 25px;">
+        <div class="card-body">
+            <h5 class="card-title" style="margin-top: 10px; margin-left: 10px; margin-bottom: 20px; margin-right:10px; font-size: 45px; font-family: 'Lora', serif;">{{ post.productName }} </h5> 
+
+            <div style="float:right" class="alert alert-dark m-3" role="alert">
+                <h6 style="float: right; margin-top: 10px; margin-right: 10px; margin-left: 10px; margin-bottom: 10px;"> 
+                    
+                    <p title="90% amount refunded after termination of subscription span" style="font-family: 'Ubuntu', sans-serif;"> Refundable Deposite : {{ post.deposite }}₹ </p>
+                    <p style="font-family: 'Ubuntu', sans-serif;"> Subcription Period : {{ post.subscriptionPeriod }} months</p>
+                    <strong class="text-muted" style=" font-family: 'Rubik', sans-serif;"> Montly charge : {{ post.productMonthlyCharge}}
+                        ₹</strong>
+                 </h6>
+              </div>
+            {% ifequal True transaction_status %}
+                <span style="color: black;  font-size: 20px; margin-bottom: 10px;" class="badge badge-success" style="font-size: 40px;">The Deal is <i style="color: red;">Closed</i></span>
+            {% else %}
+                <span style="color: black; font-size: 20px; margin-bottom: 10px;" class="badge badge-success">The Deal is <i style="color: green;"> Active</i></span>
+            {% endifequal %}
+          
+         
+          <p class="card-text" style="margin-top: 10px; margin-bottom: 25px; margin-left: 10px;">{{ post.productDesc }}</p>
+          <button type="button" class="btn btn-secondary btn-sm"  style="border-radius: 18px; color: black; width: 120px; height: 50px; border: 1px solid black; margin-left: 10px;"><a href="{% url 'payment-home' post.id %}" style="color: whitesmoke; font-family: 'Libre Franklin', sans-serif; text-decoration: none; font-size: 20px; font-weight: bold;">Proceed</a></button>
+
+        {% if request.user == post.author %}
+            <div style="float: right; margin-top: 62px; size-adjust: 30px;">
+                <a href="{% url 'post-delete' post.pk %}" class="edit-color">
+                    <i class="fa fa-trash" aria-hidden="true"></i></a>
+            </div>
+        {% endif %}
+          <p class="card-text" style="margin-left: 10px; margin-top: 20px;"><small class="text-muted">Renter : <a href="{% url 'profile' post.author.pk %}" style="text-decoration: none;"> @{{ post.author }} </a> <i>{{ post.created_on }}</i></small></p>
+        </div>
+      </div>
+
+
+      <div class="row justify-content-center mt-4">
+        <div class="col col-md-6 border-bottom mb-4">
+            <form class="mb-2" method="post">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <div class="d-grid">
+                    <button class="btn btn-success mt-3" type="submit" style="font-weight: bold;">Comment</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    {% for comment in comments %}
+    <div class="row justify-content-center mt-3">
+        <div class="col col-md-6 border-bottom mb-4 border-bottom">
+            <div>
+                <a href="{% url 'profile' comment.author.profile.pk %}">
+                    <img class="rounded-circle post-img mr-3" height="30" width="30" src="{{ comment.author.profile.picture.url }}" style="float: left;" >
+                    <p class="post-text ml-3">
+                        <a class="text-primary post-link ml-3" style="text-decoration: none;" href="{% url 'profile' comment.author.profile.pk %}">@{{ comment.author }} </a><i class="text-muted">{{ comment.created_on }}</i>
+                    </p>
+                </a>
+            </div>
+            
+                {% if request.user == comment.author %}
+                <div style="float: right;">
+
+                    <a href="{% url 'comment-delete' post.pk comment.pk %}" class="edit-color">
+                            <i class="fa fa-trash" aria-hidden="true"></i></a>
+                </div>
+                {% endif %}
+
+            <p>{{ comment.comment }}</p>
+        </div>
+    </div>
+    {% endfor %}    
+</div>
+
+{% endblock %}
+
+<!-- adi code ends here -->

@@ -1,0 +1,42 @@
+{% extends 'landing/base.html' %}
+
+
+
+{% block content %}
+
+
+<body style="background-color: ghostwhite;"> <!-- background image tak -->
+
+
+  <div class="row mt-3" >
+    <div class="col col-md-6"  style="border: 2px solid black; font-family: 'Maven Pro', sans-serif; margin-left: 80px;  width: 140px; border: 2px solid black; margin-top: 20px;">
+      <a href="{% url 'all-post' %}" class="btn btn-light" style="font-size: 15px; font-weight: 700;" >Back to Feed</a>
+    </div>
+  </div>
+
+
+  <div class="card container mt-3"  style="width: 500px; height: 450px; box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3); background-color: rgba(204, 237, 255, 0.5); text-align: center; padding: auto; margin-top: auto; border: 2px solid black; border-radius: 35px;">
+
+
+          
+
+          <div class="card-header row justify-content-center" style="width: 500px; height: 1000px; border-radius: 35px; font-size: 22px; font-family: 'Lora', serif; font-weight: 600;">
+            Transaction Details
+          </div>
+          <div class="card-body"  style="font-size: 20px; font-weight: 500; margin-top: 20px; ">
+            <p class="card-title"> Product Name : {{ product }}</p>
+            <p class="card-text"> Renter : {{ renter }}</p>
+            <p class="card-text"> Rentee : {{ rentee }}</p>
+            <p class="card-text"> Deposite : Rs {{ deposite }}</p>
+            <p class="card-text"> Subcription Plan : {{ subscriptionPlan }} months</p>
+            <p class="card-text"> Monthly Charge : Rs {{ monthlyCharge }} </p>
+            <p class="card-text"> Order Id : {{ orderId }}</p>
+            <p class="card-text"> Address : {{ address }}</p>
+            
+          </div>
+  </div>
+
+</body>
+
+{% endblock content %}
+

@@ -1,0 +1,51 @@
+{% extends 'landing/base.html' %}
+{% load crispy_forms_tags %}
+
+<!-- adi code starts here -->
+
+{% block content %}
+
+
+<body style="background-color: ghostwhite;">  <!-- background image add kr ithee static madhe aahe ti file signuptrust name aahe-->
+
+	<br><br><br>
+  
+	<div class="sign-up-form" style="width: 800px; height: 800px; box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3); background-color: rgba(204, 237, 255, 0.5); text-align: center; padding: auto; margin: auto; border: 1px solid black; border-radius: 35px;">
+
+
+
+	<div class="container">
+
+			<div class="row justify-content-center mt-3">
+				<div class="col col-md-6">
+					<a href="{% url 'all-post' %}" class="btn btn-dark" style="border: 1px solid whitesmoke; font-weight: bolder; width: 140px; border-radius: 20px; margin-top: -45px; margin-bottom: 20px;">Back To Profile</a>
+				</div>
+			</div>
+
+			<div class="row justify-content-center mt-3">
+				<div class="col col-md-6 border-bottom">
+					<h5 style="margin-top: 50px;">Edit your profile</h5>
+				</div>
+			</div>
+
+			<div class="row justify-content-center mt-3">
+				<div class="col col-md-6 border-bottom mb-4">
+					<form class="mb-2" method="post" enctype="multipart/form-data">
+						{% csrf_token %}
+						{{ form | crispy }}
+						<div class="d-grid">
+							<button class="btn btn-success mt-3">submit!</button>
+						</div>
+					</form>
+				</div>
+			</div>
+
+
+	</div>
+
+	</div>
+
+</body>
+{% endblock content %}
+
+<!-- adi code ends here -->
