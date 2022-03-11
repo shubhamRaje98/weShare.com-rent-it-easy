@@ -1,0 +1,4 @@
+django-crispy-forms
+django-allauth
+razorpay
+Pillow
